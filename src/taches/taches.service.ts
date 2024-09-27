@@ -1,8 +1,8 @@
 import { Injectable } from '@nestjs/common';
 import { InjectModel } from '@nestjs/mongoose';
 import { Model } from 'mongoose';
-import { Tache } from './tache.schema';
 import { CreateTacheDto } from './dto/tache.dto';
+import { Tache } from './tache.schema';
 
 @Injectable()
 export class TachesService {
@@ -18,7 +18,9 @@ export class TachesService {
   }
 
   async update(id: string, updateTacheDto: CreateTacheDto): Promise<Tache> {
-    return this.tacheModel.findByIdAndUpdate(id, updateTacheDto, { new: true }).exec();
+    return this.tacheModel
+      .findByIdAndUpdate(id, updateTacheDto, { new: true })
+      .exec();
   }
 
   async delete(id: string): Promise<Tache> {
