@@ -1,6 +1,12 @@
+import { ApiProperty } from '@nestjs/swagger';
+
 export class CreateTacheDto {
-    readonly titre: string;
-    readonly description: string;
-    readonly complete: boolean;
-  }
-  
+  @ApiProperty({ example: 'Titre de la tâche' })
+  readonly titre: string;
+
+  @ApiProperty({ example: 'Description de la tâche ici.' })
+  readonly description: string;
+
+  @ApiProperty({ example: false })
+  readonly complete: boolean;
+}
